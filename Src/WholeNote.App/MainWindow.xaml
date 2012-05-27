@@ -1,0 +1,45 @@
+﻿<Window x:Class="WholeNote.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Height="347"
+        Width="611"
+        Background="#222"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel x:Name="LayoutRoot">
+        
+        <DockPanel DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button Command="{Binding ExitCommand}" Content="X" />
+            </StackPanel>
+        </DockPanel>
+        
+        <TabControl Background="#222">
+            <TabItem Header="Sample File" Foreground="White" Background="#222">
+                <TextBox Background="#222" 
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap" 
+                         Foreground="#efefef" 
+                         VerticalScrollBarVisibility="Auto"></TextBox>
+            </TabItem>
+            <TabItem Header="Sample #2" Foreground="White" Background="#222">
+                <TextBox Background="#222" 
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap" 
+                         Foreground="#efefef" 
+                         VerticalScrollBarVisibility="Auto"></TextBox>
+            </TabItem>
+        </TabControl>
+        
+    </DockPanel>
+    
+</Window>
