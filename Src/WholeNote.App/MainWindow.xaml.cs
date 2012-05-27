@@ -1,5 +1,7 @@
 ﻿using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using WholeNote.App.ViewModel;
+using System;
 
 namespace WholeNote.App
 {
@@ -14,6 +16,19 @@ namespace WholeNote.App
         public MainWindow()
         {
             InitializeComponent();
+
+            MouseDown += delegate
+            {
+                try
+                {
+                    DragMove();
+                }
+                catch
+                {
+                    // Error occurs periodically if click is held??
+                }
+            };
+
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
     }
